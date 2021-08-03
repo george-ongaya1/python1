@@ -1,0 +1,54 @@
+ 
+#use case
+""""
+"""""""""""""
+"""
+#app:requirements: 
+"""
+"""""""""""""
+"""
+#functional requirements
+"""
+"""""""""""""
+1.creation of a password locker account
+1a.login username
+1b.login password
+2.ability to view account credentials
+3.ability to delete account credentials
+4.have a password authentication system
+5.application should generate a random password
+""""""""""""
+"""
+#non-functional requirements
+"""
+""""""""""""
+6.project should have 2 classes
+6b.a user class and a credentials class
+7.application must have a test class
+8.dictate the length of the password
+9.copy credentials to the clipboard
+"""
+
+"""
+6.project should have 2 classes
+ 
+class User:
+
+    user_details=[]
+
+    def __init__(self,firstName,lastName,phone):
+        
+        self.firstName=firstName
+        self.lastName=lastName
+        self.phone=phone
+
+class Credentials:
+
+    credentials_details=[]
+
+    def __init__(self,password,signUp,accountDetails):
+        
+        self.password=password
+        self.signUp=signUp
+        self.accountDetails=accountDetails
+""" 
