@@ -1,7 +1,7 @@
 import pyperclip
 class User:
     """
-    Class that generates new instances of  user.
+    Class that generates new instances of users.
     """
     user_list = []  # Empty user list
 
@@ -62,7 +62,7 @@ class User:
         return False
 
     @classmethod
-    def display_user(cls):
+    def display_users(cls):
         '''
         method that returns the user list
         '''
