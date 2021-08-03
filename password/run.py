@@ -115,7 +115,6 @@ def main():
     CEND ='\033[0m'
     CREDBG='\33[41m'
     CBLUE= '\33[94m'
-    CWHITEBG  = '\33[47m'
     CGREEN2  = '\33[92m'
   
     print("\n-----------------------------------")
@@ -163,7 +162,12 @@ def main():
     
 
     while True:
-        print("Use these short codes : cc - create a new contact, dc - display contacts, fc -search credentials, ex -exit the contact list, fe -find a contact ff- create new credentials fg -display credentials")
+        print(CGREEN2+CBOLD+"""Use these short codes : 
+        cc -create a new contact            fe -find a contact
+        dc -display contacts                ff -create new credentials
+        fc -search credentials              fg -display credentials
+        ex -exit the contact list      
+        """+CEND)
 
         short_code = input().lower()
  
