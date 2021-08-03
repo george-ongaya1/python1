@@ -115,6 +115,9 @@ def main():
     CEND ='\033[0m'
     CREDBG='\33[41m'
     CBLUE= '\33[94m'
+    CWHITEBG  = '\33[47m'
+    CGREEN2  = '\33[92m'
+  
     print("\n-----------------------------------")
     print(CREDBG+CWHITE+CBOLD+"Hello Welcome to your user list. What is your name?"+CEND)
     print("\n-----------------------------------")
@@ -211,7 +214,10 @@ def main():
             print('\n')
             save_credentials(create_credentials(socialSite, password))
             print('\n')
-            print(f"New credential /n social site:{socialSite} /n Password:{password} created")
+            print("New credential")
+            print(f"New social site:{socialSite}")
+            print('\n')
+            print(f"New Password:{password} created")
             print('\n')
 
 
@@ -227,9 +233,9 @@ def main():
 
                 print('\n')
             else:
-                print('\n')
+                print("\n-----------------------------------")
                 print(CBLUE+CBOLD+"You dont seem to have any users saved yet"+CEND)
-                print('\n')
+                print("\n-----------------------------------")
            
         elif short_code == 'fg':
  
@@ -243,9 +249,9 @@ def main():
 
                 print('\n')
             else:
-                print('\n')
+                print("\n-----------------------------------")
                 print(CBLUE+CBOLD+"You dont seem to have any credentials saved yet"+CEND)
-                print('\n')
+                print("\n-----------------------------------")
                
         elif short_code == 'fe':
 
@@ -260,7 +266,9 @@ def main():
                                     print(f"first name.......{search_user.first_name}")
                                     print(f"last name.......{search_user.last_name}")
                             else:
+                                    print("\n-----------------------------------")
                                     print(CBLUE+CBOLD+"That user does not exist"+CEND)
+                                    print("\n-----------------------------------")
                                     
         elif short_code == 'fc':
 
@@ -276,13 +284,17 @@ def main():
                 print(f"password.......{search_credentials.password}")
                 print(f"socialSite.......{search_credentials.socialSite}")
             else:
+                print("\n-----------------------------------")
                 print(CBLUE+CBOLD+"That credential does not exist"+CEND)
+                print("\n-----------------------------------")
 
         elif short_code == "ex":
             print(CBLUE+CBOLD+"Bye ......."+CEND)
             break
         else:
+            print("\n-----------------------------------")
             print(CBLUE+CBOLD+"I really didn't get that. Please use the short codes"+CEND)
+            print("\n-----------------------------------")
 
        
 
