@@ -30,7 +30,7 @@ class Credentials:
         Credentials.credentials_list.remove(self)
     
     @classmethod
-    def find_by_number(cls,number):
+    def find_by_number(cls,numbe):
         '''
         Method that takes in a number and returns a credentials that matches that number.
 
@@ -41,11 +41,11 @@ class Credentials:
         '''
 
         for credentials in cls.credentials_list:
-            if credentials.password == number:
+            if credentials.password == numbe:
                 return credentials
 
     @classmethod
-    def credentials_exist(cls,number):
+    def credentials_exist(cls,numbe):
         '''
         Method that checks if a credentials exists from the credentials list.
         Args:
@@ -54,7 +54,7 @@ class Credentials:
             Boolean: True or false depending if the credentials exists
         '''
         for credentials in cls.credentials_list:
-            if credentials.password == number:
+            if credentials.password == numbe:
                     return True
 
         return False
@@ -67,6 +67,6 @@ class Credentials:
         return cls.credentials_list
 
     @classmethod
-    def copy_socialSite(cls,number):
-        credentials_found = Credentials.find_by_number(number)
+    def copy_socialSite(cls,numbee):
+        credentials_found = Credentials.find_by_number(numbee)
         pyperclip.copy(credentials_found.socialSite)

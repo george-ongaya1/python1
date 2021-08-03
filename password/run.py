@@ -56,7 +56,6 @@ def display_user():
     '''
     return User.display_user()
 
-
 '''
 credentials
 '''
@@ -84,18 +83,18 @@ def del_credentials(credentials):
     credentials.delete_credentials()
 
 
-def find_credentials(number):
+def find_credentials(numbe):
     '''
     Function that finds a credentials by number and returns the credentials
     '''
-    return Credentials.find_by_number(number)
+    return Credentials.find_by_number(numbe)
 
 
-def check_existing_credentials(number):
+def check_existing_credentials(numbe):
     '''
     Function that check if a credentials exists with that number and return a Boolean
     '''
-    return Credentials.credentials_exist(number)
+    return Credentials.credentials_exist(numbe)
 
 
 def display_credentials():
@@ -161,7 +160,7 @@ def main():
     
 
     while True:
-        print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a password, ex -exit the contact list, fe -find a contact ff- create new credentials fg -display credentials fi-search credentials")
+        print("Use these short codes : cc - create a new contact, dc - display contacts, fc -search credentials, ex -exit the contact list, fe -find a contact ff- create new credentials fg -display credentials")
 
         short_code = input().lower()
  
@@ -205,31 +204,31 @@ def main():
             print("password ...")
             password= input()
 
-            save_credentials(create_user(socialSite, password))
-            # create and save new contact.
+            save_credentials(create_credentials(socialSite, password))
+            # create and save new credential.
             print('\n')
             print(f"New SocialSite{socialSite} {password} created")
             print('\n')
-            save_user(create_user(socialSite, password))
+            save_credentials(create_credentials(socialSite, password))
             print('\n')
-            print(f"New Contact {socialSite} {password} created")
+            print(f"New credential{socialSite} {password} created")
             print('\n')
 
 
         elif short_code == 'dc':
  
             if display_user():
-                print(CBLUE+"Here is a list of all your contacts"+CEND)
+                print(CBLUE+"Here is a list of all your users"+CEND)
                 print('\n')
 
-                for contact in display_user():
+                for user in display_user():
                     print(
-                        f"{contact.first_name} {contact.last_name} .....{contact.phone_number}")
+                        f"{user.f_name} {user.l_name} ....{user.phone}")
 
                 print('\n')
             else:
                 print('\n')
-                print(CBLUE+CBOLD+"You dont seem to have any contacts saved yet"+CEND)
+                print(CBLUE+CBOLD+"You dont seem to have any users saved yet"+CEND)
                 print('\n')
            
         elif short_code == 'fg':
@@ -240,7 +239,7 @@ def main():
 
                 for credentials in display_credentials():
                     print(
-                        f"{credentials.socialSite} {credentials.password} .....{contact.phone_number}")
+                        f"{credentials.socialSite} {credentials.password} .....{credentials.numbe}")
 
                 print('\n')
             else:
@@ -254,22 +253,22 @@ def main():
 
                             search_number = input()
                             if check_existing_user(search_number):
-                                    search_contact = find_user(search_number)
-                                    print(f"{search_contact.first_name} {search_contact.last_name}")
+                                    search_user = find_user(search_number)
+                                    print(f"{search_user.first_name} {search_user.last_name}")
                                     print('-' * 20)
 
-                                    print(f"Phone number.......{search_contact.first_name}")
-                                    print(f"Email address.......{search_contact.last_name}")
+                                    print(f"Phone number.......{search_user.first_name}")
+                                    print(f"Email address.......{search_user.last_name}")
                             else:
                                     print(CBLUE+CBOLD+"That contact does not exist"+CEND)
                                     
         elif short_code == 'fc':
 
-            print(CBLUE+"Enter the number you want to search for"+CEND)
+            print(CBLUE+"Enter the credential you want to search for"+CEND)
 
-            search_number = input()
-            if check_existing_credentials(search_number):
-                search_credentials = find_credentials(search_number)
+            search_numbe = input()
+            if check_existing_credentials(search_numbe):
+                search_credentials = find_credentials(search_numbe)
                 print(
                     f"{search_credentials.password} {search_credentials.socialSite}")
                 print('-' * 20)
@@ -277,7 +276,7 @@ def main():
                 print(f"password.......{search_credentials.password}")
                 print(f"socialSite.......{search_credentials.socialSite}")
             else:
-                print(CBLUE+CBOLD+"That contact does not exist"+CEND)
+                print(CBLUE+CBOLD+"That credential does not exist"+CEND)
 
         elif short_code == "ex":
             print(CBLUE+CBOLD+"Bye ......."+CEND)
