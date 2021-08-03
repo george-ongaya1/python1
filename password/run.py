@@ -3,6 +3,7 @@ from user import User
 from credentials import Credentials
 import random
 import string
+ 
 
 #! shebang
 
@@ -10,6 +11,7 @@ import string
 '''
 users
 '''
+ 
 
 
 def create_user(fname, lname, phone, email):
@@ -109,12 +111,33 @@ main application
 
 
 def main():
-    print("Hello Welcome to your contact list. What is your name?")
+    CBOLD= '\33[1m' 
+    CWHITE ='\33[37m'
+    CEND ='\033[0m'
+    CREDBG='\33[41m'
+    CBLUE= '\33[94m'
+    print("\n-----------------------------------")
+    print(CREDBG+CWHITE+CBOLD+"Hello Welcome to your user list. What is your name?"+CEND)
+    print("\n-----------------------------------")
     user_name = input()
+    
+#colors in use
+#CBLUE= '\33[94m'     
+#CGREENBG  = '\33[42m'
+#CYELLOWBG = '\33[43m'
+#CBLUEBG   = '\33[44m'
+#CVIOLETBG = '\33[45m'
+#CBEIGEBG  = '\33[46m'
+#CWHITEBG  = '\33[47m'
+#CGREEN2  = '\33[92m'
+#CYELLOW2 = '\33[93m'
+#CBLUE2   = '\33[94m'
+#CBEIGE  = '\33[36m'
+    
 
 #password generator
-    
-    print("Have a complimentary auto-password")
+    print("\n-----------------------------------")
+    print(CREDBG+CWHITE+"Have a complimentary auto-password"+CEND)
     length=int(input('\nEnter the desired length of password::  '))
     
     lower=string.ascii_lowercase
@@ -128,17 +151,20 @@ def main():
     auto=autopassword
 
     print(f"Hello {user_name}. what would you like to do?")
+   
+    
     
     print("\n-----------------------------------")
-    print(f"Feel free to use the password :: {auto}")
+    print(CBLUE+"Feel free to use the password :: "+CEND)
+    print({auto})
     print("\n-----------------------------------")
     
 
     while True:
-        print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list")
+        print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a password, ex -exit the contact list, fe -find a contact")
 
         short_code = input().lower()
-
+ 
         if short_code == 'cc':
             print("New Contact")
             print("-"*10)
@@ -166,9 +192,9 @@ def main():
             print('\n')
 
         elif short_code == 'dc':
-
+ 
             if display_user():
-                print("Here is a list of all your contacts")
+                print(CBLUE+"Here is a list of all your contacts"+CEND)
                 print('\n')
 
                 for contact in display_user():
@@ -178,12 +204,25 @@ def main():
                 print('\n')
             else:
                 print('\n')
-                print("You dont seem to have any contacts saved yet")
+                print(CBLUE+CBOLD+"You dont seem to have any contacts saved yet"+CEND)
                 print('\n')
+        elif short_code == 'fe':
 
+                            print("Enter the number you want to search for")
+
+                            search_number = input()
+                            if check_existing_user(search_number):
+                                    search_contact = find_user(search_number)
+                                    print(f"{search_contact.first_name} {search_contact.last_name}")
+                                    print('-' * 20)
+
+                                    print(f"Phone number.......{search_contact.phone_number}")
+                                    print(f"Email address.......{search_contact.email}")
+                            else:
+                                    print(CBLUE+CBOLD+"That contact does not exist"+CEND)
         elif short_code == 'fc':
 
-            print("Enter the number you want to search for")
+            print(CBLUE+"Enter the number you want to search for"+CEND)
 
             search_number = input()
             if check_existing_credentials(search_number):
@@ -195,13 +234,13 @@ def main():
                 print(f"Phone number.......{search_credentials.password}")
                 print(f"Email address.......{search_credentials.socialSite}")
             else:
-                print("That contact does not exist")
+                print(CBLUE+CBOLD+"That contact does not exist"+CEND)
 
         elif short_code == "ex":
-            print("Bye .......")
+            print(CBLUE+CBOLD+"Bye ......."+CEND)
             break
         else:
-            print("I really didn't get that. Please use the short codes")
+            print(CBLUE+CBOLD+"I really didn't get that. Please use the short codes"+CEND)
 
        
 
