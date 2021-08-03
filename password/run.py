@@ -211,7 +211,7 @@ def main():
             print('\n')
             save_credentials(create_credentials(socialSite, password))
             print('\n')
-            print(f"New credential{socialSite} {password} created")
+            print(f"New credential /n social site:{socialSite} /n Password:{password} created")
             print('\n')
 
 
@@ -249,7 +249,7 @@ def main():
                
         elif short_code == 'fe':
 
-                            print("Enter the number you want to search for")
+                            print("Enter the user you want to search for")
 
                             search_number = input()
                             if check_existing_user(search_number):
@@ -257,10 +257,10 @@ def main():
                                     print(f"{search_user.first_name} {search_user.last_name}")
                                     print('-' * 20)
 
-                                    print(f"Phone number.......{search_user.first_name}")
-                                    print(f"Email address.......{search_user.last_name}")
+                                    print(f"first name.......{search_user.first_name}")
+                                    print(f"last name.......{search_user.last_name}")
                             else:
-                                    print(CBLUE+CBOLD+"That contact does not exist"+CEND)
+                                    print(CBLUE+CBOLD+"That user does not exist"+CEND)
                                     
         elif short_code == 'fc':
 
